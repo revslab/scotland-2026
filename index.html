@@ -9,9 +9,9 @@
   :root{--isle-accent:#2d6a4f;--isle-bg:#f0f7f4;--main-accent:#7b4b2a;--main-bg:#fdf6f0;--text:#1a1a1a;--muted:#6b7280;--card-shadow:0 4px 24px rgba(0,0,0,0.08)}
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#f8f6f3;line-height:1.6}
-  .hero{position:relative;text-align:center;padding:80px 24px 60px;color:white;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:center;align-items:center}
-  .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:url('img/hero.jpg') center/cover;filter:brightness(0.55);z-index:0}
-  .hero>*{position:relative;z-index:1}
+  .hero{position:relative;background:url('img/hero.jpg') center/cover;text-align:center;padding:80px 24px 60px;color:white;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+  
+  .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:0}.hero>*{position:relative;z-index:1}
   .hero h1{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.4)}
   .hero .subtitle{font-size:1.15rem;opacity:0.9;font-weight:300}
   .hero .dates{display:inline-block;margin-top:20px;padding:10px 28px;border:1px solid rgba(255,255,255,0.4);border-radius:100px;font-size:1rem;font-weight:500;backdrop-filter:blur(4px);background:rgba(255,255,255,0.1)}
@@ -91,7 +91,7 @@
 </head>
 <body>
 <div class="hero">
-  <div class="hero-bg"></div>
+  
   <h1>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland 2026</h1>
   <div class="subtitle">Two ways to do this. We need your vote.</div>
   <div class="dates">🗓 July 5–20, 2026</div>
