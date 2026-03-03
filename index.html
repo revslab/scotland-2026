@@ -6,509 +6,165 @@
 <title>Scotland 2026 — Help Us Decide!</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
-
-  :root {
-    --isle-accent: #2d6a4f;
-    --isle-bg: #f0f7f4;
-    --main-accent: #7b4b2a;
-    --main-bg: #fdf6f0;
-    --text: #1a1a1a;
-    --muted: #6b7280;
-    --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: var(--text);
-    background: #f8f6f3;
-    line-height: 1.6;
-  }
-
-  .hero {
-    background: linear-gradient(135deg, #1a3a2a 0%, #2d4a3a 50%, #3d5a4a 100%);
-    color: white;
-    text-align: center;
-    padding: 60px 24px 50px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.5;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    margin-bottom: 12px;
-    position: relative;
-  }
-
-  .hero .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.85;
-    font-weight: 300;
-    position: relative;
-  }
-
-  .hero .dates {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 24px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    position: relative;
-  }
-
-  .travelers {
-    text-align: center;
-    padding: 32px 24px;
-    background: white;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .travelers .group {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .travelers .person {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-  }
-
-  .travelers .person .emoji {
-    font-size: 1.4rem;
-  }
-
-  .intro {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    text-align: center;
-  }
-
-  .intro p {
-    font-size: 1.05rem;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  .options {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  @media (max-width: 768px) {
-    .options { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2rem; }
-  }
-
-  .option-card {
-    background: white;
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    transition: transform 0.2s;
-  }
-
-  .option-card:hover { transform: translateY(-2px); }
-
-  .option-card.islay .card-header { background: linear-gradient(135deg, var(--isle-accent), #40916c); }
-  .option-card.mainland .card-header { background: linear-gradient(135deg, var(--main-accent), #a0744e); }
-
-  .card-header {
-    color: white;
-    padding: 28px 28px 24px;
-  }
-
-  .card-header .label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.8;
-    margin-bottom: 8px;
-  }
-
-  .card-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 6px;
-  }
-
-  .card-header .tagline {
-    font-size: 0.95rem;
-    opacity: 0.85;
-    font-weight: 300;
-  }
-
-  .card-body {
-    padding: 28px;
-  }
-
-  .section-title {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    margin-bottom: 12px;
-    margin-top: 24px;
-  }
-
-  .section-title:first-child { margin-top: 0; }
-
-  .card-body ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .card-body ul li {
-    padding: 6px 0;
-    font-size: 0.92rem;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .card-body ul li .icon {
-    flex-shrink: 0;
-    width: 20px;
-    text-align: center;
-  }
-
-  .highlight-box {
-    padding: 16px;
-    border-radius: 10px;
-    margin-top: 16px;
-    font-size: 0.9rem;
-  }
-
-  .option-card.islay .highlight-box {
-    background: var(--isle-bg);
-    border-left: 3px solid var(--isle-accent);
-  }
-
-  .option-card.mainland .highlight-box {
-    background: var(--main-bg);
-    border-left: 3px solid var(--main-accent);
-  }
-
-  .pros-cons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-
-  .pros-cons ul li { font-size: 0.85rem; }
-
-  .weather-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 100px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    margin-top: 12px;
-  }
-
-  .option-card.islay .weather-badge { background: #e8f5e9; color: #2e7d32; }
-  .option-card.mainland .weather-badge { background: #fff3e0; color: #e65100; }
-
-  .july-section {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px 48px;
-    text-align: center;
-  }
-
-  .july-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-  }
-
-  .july-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    text-align: left;
-  }
-
-  @media (max-width: 768px) { .july-grid { grid-template-columns: 1fr; } }
-
-  .july-card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  }
-
-  .july-card h4 {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-  }
-
-  .july-card p {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-
-  .bruichladdich-note {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px 48px;
-  }
-
-  .bruichladdich-note .inner {
-    background: linear-gradient(135deg, #1a3a2a, #2d4a3a);
-    color: white;
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-  }
-
-  .bruichladdich-note h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-  }
-
-  .bruichladdich-note p {
-    font-size: 0.92rem;
-    opacity: 0.85;
-    max-width: 540px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .vote-section {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-    text-align: center;
-  }
-
-  .vote-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-
-  .vote-section .subtext {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin-bottom: 28px;
-  }
-
-  .vote-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .vote-btn {
-    padding: 16px 36px;
-    border-radius: 12px;
-    border: 2px solid transparent;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .vote-btn.islay-btn {
-    background: var(--isle-accent);
-    color: white;
-  }
-
-  .vote-btn.islay-btn:hover {
-    background: #235c43;
-    transform: scale(1.03);
-  }
-
-  .vote-btn.mainland-btn {
-    background: var(--main-accent);
-    color: white;
-  }
-
-  .vote-btn.mainland-btn:hover {
-    background: #6a3f22;
-    transform: scale(1.03);
-  }
-
-  .vote-btn.both-btn {
-    background: white;
-    color: var(--text);
-    border-color: #d1d5db;
-  }
-
-  .vote-btn.both-btn:hover {
-    border-color: var(--text);
-    transform: scale(1.03);
-  }
-
-  .vote-result {
-    display: none;
-    margin-top: 24px;
-    padding: 20px;
-    border-radius: 12px;
-    background: white;
-    box-shadow: var(--card-shadow);
-    font-size: 1rem;
-  }
-
-  .vote-result.show { display: block; }
-
-  .itinerary-preview {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px 60px;
-  }
-
-  .itinerary-preview h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .timeline {
-    position: relative;
-    padding-left: 32px;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: #d1d5db;
-  }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: 20px;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -28px;
-    top: 6px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #d1d5db;
-    border: 2px solid white;
-  }
-
-  .timeline-item.scotland::before { background: var(--isle-accent); }
-  .timeline-item.paris::before { background: #c2185b; }
-  .timeline-item.amsterdam::before { background: #e65100; }
-
-  .timeline-item .date {
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--muted);
-  }
-
-  .timeline-item .desc {
-    font-size: 0.92rem;
-    margin-top: 2px;
-  }
-
-  .footer {
-    text-align: center;
-    padding: 32px 24px;
-    font-size: 0.82rem;
-    color: var(--muted);
-    border-top: 1px solid #e5e7eb;
-  }
+  :root{--isle-accent:#2d6a4f;--isle-bg:#f0f7f4;--main-accent:#7b4b2a;--main-bg:#fdf6f0;--text:#1a1a1a;--muted:#6b7280;--card-shadow:0 4px 24px rgba(0,0,0,0.08)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#f8f6f3;line-height:1.6}
+  .hero{position:relative;text-align:center;padding:80px 24px 60px;color:white;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1506377585622-bedcbb027afc?w=1600&q=80') center/cover;filter:brightness(0.4);z-index:0}
+  .hero>*{position:relative;z-index:1}
+  .hero h1{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.4)}
+  .hero .subtitle{font-size:1.15rem;opacity:0.9;font-weight:300}
+  .hero .dates{display:inline-block;margin-top:20px;padding:10px 28px;border:1px solid rgba(255,255,255,0.4);border-radius:100px;font-size:1rem;font-weight:500;backdrop-filter:blur(4px);background:rgba(255,255,255,0.1)}
+  .travelers{text-align:center;padding:32px 24px;background:white;border-bottom:1px solid #e5e7eb}
+  .travelers .group{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+  .travelers .person{display:flex;align-items:center;gap:8px;font-size:0.95rem}
+  .travelers .person .emoji{font-size:1.4rem}
+  .intro{max-width:720px;margin:0 auto;padding:40px 24px;text-align:center}
+  .intro p{font-size:1.05rem;color:var(--muted);line-height:1.8}
+  .options{max-width:1200px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  @media(max-width:768px){.options{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.photo-grid{grid-template-columns:1fr!important}}
+  .option-card{background:white;border-radius:16px;box-shadow:var(--card-shadow);overflow:hidden;transition:transform 0.2s}
+  .option-card:hover{transform:translateY(-2px)}
+  .card-hero{position:relative;height:220px;overflow:hidden}
+  .card-hero img{width:100%;height:100%;object-fit:cover}
+  .card-hero .overlay{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:white}
+  .card-hero .overlay .label{font-size:0.72rem;text-transform:uppercase;letter-spacing:2px;opacity:0.8}
+  .card-hero .overlay h2{font-family:'Playfair Display',serif;font-size:1.7rem;margin-top:4px}
+  .card-hero .overlay .tagline{font-size:0.9rem;opacity:0.85;font-weight:300;margin-top:2px}
+  .card-body{padding:28px}
+  .section-title{font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:12px;margin-top:28px}
+  .section-title:first-child{margin-top:0}
+  .card-body ul{list-style:none;padding:0}
+  .card-body ul li{padding:6px 0;font-size:0.92rem;display:flex;gap:8px;align-items:flex-start}
+  .card-body ul li .icon{flex-shrink:0;width:20px;text-align:center}
+  .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;border-radius:10px;overflow:hidden}
+  .photo-grid .photo-item{position:relative;height:140px;overflow:hidden}
+  .photo-grid .photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+  .photo-grid .photo-item:hover img{transform:scale(1.05)}
+  .photo-grid .photo-item .photo-label{position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:white;font-size:0.72rem;font-weight:600;letter-spacing:0.5px}
+  .photo-grid .photo-item.wide{grid-column:span 2;height:180px}
+  .highlight-box{padding:16px;border-radius:10px;margin-top:16px;font-size:0.9rem}
+  .option-card.islay .highlight-box{background:var(--isle-bg);border-left:3px solid var(--isle-accent)}
+  .option-card.mainland .highlight-box{background:var(--main-bg);border-left:3px solid var(--main-accent)}
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  .pros-cons ul li{font-size:0.85rem}
+  .weather-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:0.82rem;font-weight:500;margin-top:12px}
+  .option-card.islay .weather-badge{background:#e8f5e9;color:#2e7d32}
+  .option-card.mainland .weather-badge{background:#fff3e0;color:#e65100}
+  .july-section{max-width:720px;margin:0 auto;padding:0 24px 48px;text-align:center}
+  .july-section h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:16px}
+  .july-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+  @media(max-width:768px){.july-grid{grid-template-columns:1fr}}
+  .july-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+  .july-card h4{font-size:0.95rem;margin-bottom:8px}
+  .july-card p{font-size:0.85rem;color:var(--muted)}
+  .bruichladdich-note{max-width:720px;margin:0 auto;padding:0 24px 48px}
+  .bruichladdich-note .inner{background:linear-gradient(135deg,#1a3a2a,#2d4a3a);color:white;border-radius:16px;padding:32px;text-align:center}
+  .bruichladdich-note h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:12px}
+  .bruichladdich-note p{font-size:0.92rem;opacity:0.85;max-width:540px;margin:0 auto;line-height:1.7}
+  .itinerary-preview{max-width:720px;margin:0 auto;padding:0 24px 60px}
+  .itinerary-preview h3{font-family:'Playfair Display',serif;font-size:1.5rem;text-align:center;margin-bottom:24px}
+  .timeline{position:relative;padding-left:32px}
+  .timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:#d1d5db}
+  .timeline-item{position:relative;margin-bottom:20px}
+  .timeline-item::before{content:'';position:absolute;left:-28px;top:6px;width:12px;height:12px;border-radius:50%;background:#d1d5db;border:2px solid white}
+  .timeline-item.scotland::before{background:var(--isle-accent)}
+  .timeline-item.paris::before{background:#c2185b}
+  .timeline-item.amsterdam::before{background:#e65100}
+  .timeline-item .date{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .timeline-item .desc{font-size:0.92rem;margin-top:2px}
+  .vote-section{max-width:600px;margin:0 auto;padding:0 24px 80px;text-align:center}
+  .vote-section h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px}
+  .vote-section .subtext{color:var(--muted);font-size:0.95rem;margin-bottom:28px}
+  .vote-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .vote-btn{padding:16px 36px;border-radius:12px;border:2px solid transparent;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
+  .vote-btn.islay-btn{background:var(--isle-accent);color:white}
+  .vote-btn.islay-btn:hover{background:#235c43;transform:scale(1.03)}
+  .vote-btn.mainland-btn{background:var(--main-accent);color:white}
+  .vote-btn.mainland-btn:hover{background:#6a3f22;transform:scale(1.03)}
+  .vote-btn.both-btn{background:white;color:var(--text);border-color:#d1d5db}
+  .vote-btn.both-btn:hover{border-color:var(--text);transform:scale(1.03)}
+  .vote-result{display:none;margin-top:24px;padding:20px;border-radius:12px;background:white;box-shadow:var(--card-shadow);font-size:1rem}
+  .vote-result.show{display:block}
+  .footer{text-align:center;padding:32px 24px;font-size:0.82rem;color:var(--muted);border-top:1px solid #e5e7eb}
 </style>
 </head>
 <body>
-
 <div class="hero">
+  <div class="hero-bg"></div>
   <h1>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland 2026</h1>
   <div class="subtitle">Two ways to do this. We need your vote.</div>
   <div class="dates">🗓 July 5–20, 2026</div>
 </div>
-
 <div class="travelers">
   <div class="group">
-    <div class="person"><span class="emoji">🧔</span> Rev</div>
+    <div class="person"><span class="emoji">🧔</span> Jon</div>
     <div class="person"><span class="emoji">🥃</span> Trevor</div>
     <div class="person"><span class="emoji">✨</span> Jess</div>
     <div class="person"><span class="emoji">🎢</span> Jody <span style="color:var(--muted);font-size:0.8rem">(joins for Netherlands)</span></div>
   </div>
 </div>
-
 <div class="intro">
   <p>The full trip is Scotland → Paris → Amsterdam. The question is how we spend our Scotland days. Here are two options — read through and let us know what speaks to you.</p>
 </div>
-
-<!-- OPTIONS -->
 <div class="options">
-
   <!-- ISLAY -->
   <div class="option-card islay">
-    <div class="card-header">
-      <div class="label">Option A</div>
-      <h2>🏝️ Islay Island</h2>
-      <div class="tagline">The whisky pilgrimage</div>
+    <div class="card-hero">
+      <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?w=800&q=80" alt="Scottish coastal landscape">
+      <div class="overlay">
+        <div class="label">Option A</div>
+        <h2>🏝️ Islay Island</h2>
+        <div class="tagline">The whisky pilgrimage</div>
+      </div>
     </div>
     <div class="card-body">
-      <div class="section-title">The Vibe</div>
-      <p style="font-size:0.92rem;color:var(--muted)">Fly to a remote island of 3,000 people in the Inner Hebrides. White sand beaches, crashing Atlantic waves, and some of the most legendary distilleries on earth. This is a pilgrimage, not a tour.</p>
-
+      <p style="font-size:0.92rem;color:var(--muted)">Fly to a remote island of 3,000 people in the Inner Hebrides. White sand beaches, crashing Atlantic waves, and some of the most legendary distilleries on earth.</p>
+      <div class="section-title">📸 What You'll See</div>
+      <div class="photo-grid">
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bruichladdich_Distillery_-_geograph.org.uk_-_272178.jpg/1280px-Bruichladdich_Distillery_-_geograph.org.uk_-_272178.jpg" alt="Bruichladdich Distillery">
+          <div class="photo-label">Bruichladdich Distillery</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Lagavulin_Distillery.jpg/1280px-Lagavulin_Distillery.jpg" alt="Lagavulin Bay">
+          <div class="photo-label">Lagavulin & Castle Ruins</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Machir_Bay%2C_Islay_-_geograph.org.uk_-_272697.jpg/1280px-Machir_Bay%2C_Islay_-_geograph.org.uk_-_272697.jpg" alt="Machir Bay">
+          <div class="photo-label">Machir Bay Beach</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kilchoman_Distillery_-_geograph.org.uk_-_1098123.jpg/1280px-Kilchoman_Distillery_-_geograph.org.uk_-_1098123.jpg" alt="Kilchoman Distillery">
+          <div class="photo-label">Kilchoman Farm Distillery</div>
+        </div>
+        <div class="photo-item wide">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Kildalton_Cross.jpg/800px-Kildalton_Cross.jpg" alt="Kildalton Cross" style="object-position:center 30%">
+          <div class="photo-label">Kildalton Cross — 8th Century Celtic High Cross</div>
+        </div>
+      </div>
       <div class="section-title">🥃 Distilleries</div>
       <ul>
-        <li><span class="icon">⭐</span><span><strong>Bruichladdich</strong> — The main event. Book the Warehouse Experience or Black Art tasting for the full experience, not just the standard tour</span></li>
-        <li><span class="icon">🌾</span><span><strong>Kilchoman</strong> — Scotland's most remote farm distillery. They grow their own barley right there. Incredible ethos</span></li>
+        <li><span class="icon">⭐</span><span><strong>Bruichladdich</strong> — The main event. Book the Warehouse Experience or Black Art tasting — not just the standard tour</span></li>
+        <li><span class="icon">🌾</span><span><strong>Kilchoman</strong> — Scotland's most remote farm distillery. They grow their own barley right there</span></li>
         <li><span class="icon">🏰</span><span><strong>Lagavulin</strong> — Warehouse tasting with views of Dunyvaig Castle ruins on the cove</span></li>
-        <li><span class="icon">🦭</span><span><strong>Bunnahabhain</strong> — Most remote distillery on the island. Seals lounging on the rocks below. Least peaty Islay malt</span></li>
+        <li><span class="icon">🦭</span><span><strong>Bunnahabhain</strong> — Most remote on the island. Seals on the rocks. Least peaty Islay malt</span></li>
       </ul>
-
       <div class="section-title">🏛️ History & Nature</div>
       <ul>
         <li><span class="icon">✝️</span><span><strong>Kildalton Cross</strong> — 8th century Celtic high cross, one of the finest surviving in Scotland</span></li>
-        <li><span class="icon">🏔️</span><span><strong>Machir Bay & Saligo Bay</strong> — Wild Atlantic beaches with dramatic cliffs</span></li>
+        <li><span class="icon">🏖️</span><span><strong>Machir Bay & Saligo Bay</strong> — Wild Atlantic beaches with dramatic cliffs</span></li>
         <li><span class="icon">🦅</span><span>Sea eagles, seals, and coastal wildlife everywhere</span></li>
       </ul>
-
       <div class="section-title">🚗 Getting Around</div>
-      <p style="font-size:0.9rem;color:var(--muted)">Hire a private driver/guide (~£250–350/day). Everyone can drink freely, and you get a local insider who knows the island. Everything is within 30 min of everything else.</p>
-
+      <p style="font-size:0.9rem;color:var(--muted)">Hire a private driver/guide (~£250–350/day). Everyone drinks freely + local insider knowledge. Everything within 30 min.</p>
       <div class="highlight-box">
-        <strong>The Bruichladdich factor:</strong> There is no mainland tasting room, no satellite experience. If you want the real Bruichladdich experience — tasting cask-strength stuff that never leaves the island, standing in Port Charlotte smelling the sea air — this is the only way.
+        <strong>The Bruichladdich factor:</strong> There is no mainland tasting room. Their identity <em>is</em> Islay — the terroir, the water, the sea air. If you want the real experience — cask-strength stuff that never leaves the island — this is the only way.
       </div>
-
-      <span class="weather-badge">🌤️ July: 14–17°C, long daylight (17+ hrs), coastal breeze cuts the midges</span>
-
+      <div class="highlight-box" style="margin-top:10px;background:#fff8e1;border-left-color:#f9a825">
+        <strong>🌺 For Jess:</strong> Islay has gorgeous beaches, coastal walks, wildlife (seals, sea eagles), and the village of Port Charlotte is charming. But options beyond whisky + nature are more limited on a small island.
+      </div>
+      <span class="weather-badge">🌤️ July: 14–17°C, 17+ hrs daylight, coastal breeze keeps midges away</span>
       <div class="section-title">Tradeoffs</div>
       <div class="pros-cons">
         <div>
@@ -517,61 +173,79 @@
             <li><span class="icon">•</span>Bruichladdich. No substitute</li>
             <li><span class="icon">•</span>Island feel — truly away from it all</li>
             <li><span class="icon">•</span>Private driver = zero stress</li>
-            <li><span class="icon">•</span>Concentrated — no long drives</li>
-            <li><span class="icon">•</span>July = peak daylight, mild temps</li>
+            <li><span class="icon">•</span>Concentrated, no long drives</li>
+            <li><span class="icon">•</span>Peak daylight, mild temps</li>
           </ul>
         </div>
         <div>
           <strong style="color:#c62828;font-size:0.82rem">⚠️ CONS</strong>
           <ul>
-            <li><span class="icon">•</span>Flights limited (Loganair, book early)</li>
+            <li><span class="icon">•</span>Flights limited (book early!)</li>
             <li><span class="icon">•</span>Less scenic variety than Highlands</li>
-            <li><span class="icon">•</span>No grand megaliths/cairns</li>
-            <li><span class="icon">•</span>July midges exist (coastal wind helps)</li>
-            <li><span class="icon">•</span>Jess may want non-whisky activities — options are more limited on a small island</li>
+            <li><span class="icon">•</span>No grand megaliths or cairns</li>
+            <li><span class="icon">•</span>Fewer non-whisky activities</li>
+            <li><span class="icon">•</span>July midges (wind helps though)</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-
   <!-- MAINLAND -->
   <div class="option-card mainland">
-    <div class="card-header">
-      <div class="label">Option B</div>
-      <h2>🏔️ Highland Road Trip</h2>
-      <div class="tagline">Scenery, standing stones & sleeper distilleries</div>
+    <div class="card-hero">
+      <img src="https://images.unsplash.com/photo-1461301214746-1e109215d6d3?w=800&q=80" alt="Scottish Highlands Glencoe">
+      <div class="overlay">
+        <div class="label">Option B</div>
+        <h2>🏔️ Highland Road Trip</h2>
+        <div class="tagline">Scenery, standing stones & sleeper distilleries</div>
+      </div>
     </div>
     <div class="card-body">
-      <div class="section-title">The Vibe</div>
-      <p style="font-size:0.92rem;color:var(--muted)">Rent a car and drive through the Scottish Highlands. Ancient standing stones older than the pyramids, jaw-dropping glens, and craft distilleries that most tourists never find. Something for everyone.</p>
-
+      <p style="font-size:0.92rem;color:var(--muted)">Rent a car and drive through the Scottish Highlands. Ancient standing stones older than the pyramids, jaw-dropping glens, and craft distilleries most tourists never find.</p>
+      <div class="section-title">📸 What You'll See</div>
+      <div class="photo-grid">
+        <div class="photo-item wide">
+          <img src="https://images.unsplash.com/photo-1506377585622-bedcbb027afc?w=1000&q=80" alt="Glencoe Valley">
+          <div class="photo-label">Glencoe — One of Scotland's Most Dramatic Valleys</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Clava_cairn%2C_passage_grave.jpg/1280px-Clava_cairn%2C_passage_grave.jpg" alt="Clava Cairns">
+          <div class="photo-label">Clava Cairns (4,000 years old)</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nether_Largie_Standing_Stones_20120913.jpg/800px-Nether_Largie_Standing_Stones_20120913.jpg" alt="Kilmartin Glen Standing Stones">
+          <div class="photo-label">Kilmartin Glen Standing Stones</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Edradour_Distillery_-_geograph.org.uk_-_749553.jpg/1280px-Edradour_Distillery_-_geograph.org.uk_-_749553.jpg" alt="Edradour Distillery">
+          <div class="photo-label">Edradour — Smallest Distillery</div>
+        </div>
+        <div class="photo-item">
+          <img src="https://images.unsplash.com/photo-1548444648-6ee1efee2bf9?w=800&q=80" alt="Highland Cow">
+          <div class="photo-label">Highland Coos 🐄</div>
+        </div>
+      </div>
       <div class="section-title">🥃 Distilleries (Sleeper Hits)</div>
       <ul>
         <li><span class="icon">🏆</span><span><strong>Benromach</strong> (Forres) — Tiny, traditional, handcrafted Speyside. The anti-corporate distillery</span></li>
-        <li><span class="icon">🔮</span><span><strong>The Cairn</strong> (Grantown-on-Spey) — Ultra-modern, brand new. Sister to Benromach — future meets past</span></li>
-        <li><span class="icon">🌊</span><span><strong>Deanston</strong> (near Stirling) — Beautiful converted cotton mill on a river. Self-powered by waterwheel</span></li>
-        <li><span class="icon">🤫</span><span><strong>Edradour</strong> (Pitlochry) — Smallest traditional distillery in Scotland. Feels like discovering a secret</span></li>
-        <li><span class="icon">🏔️</span><span><strong>Tomatin</strong> — Gorgeous Highland setting, under most tourists' radar</span></li>
+        <li><span class="icon">🔮</span><span><strong>The Cairn</strong> (Grantown-on-Spey) — Ultra-modern, brand new. Sister to Benromach</span></li>
+        <li><span class="icon">🌊</span><span><strong>Deanston</strong> (near Stirling) — Converted cotton mill on a river, powered by waterwheel</span></li>
+        <li><span class="icon">🤫</span><span><strong>Edradour</strong> (Pitlochry) — Smallest traditional distillery in Scotland. Feels like a secret</span></li>
+        <li><span class="icon">🏔️</span><span><strong>Tomatin</strong> — Gorgeous Highland setting, under the radar</span></li>
       </ul>
-
-      <div class="section-title">🏛️ Ancient Sites & Scenery</div>
+      <div class="section-title">🏛️ Ancient Sites</div>
       <ul>
-        <li><span class="icon">🪨</span><span><strong>Kilmartin Glen</strong> — 350+ ancient monuments in one valley. Standing stones, cairns, 5,000-year-old rock carvings. Barely anyone goes here. This is the hidden gem of Scotland</span></li>
-        <li><span class="icon">⭕</span><span><strong>Clava Cairns</strong> (near Inverness) — 4,000-year-old burial cairns and standing stones. Atmospheric and uncrowded. Inspired Outlander's Craigh na Dun</span></li>
-        <li><span class="icon">⛰️</span><span><strong>Glencoe</strong> — One of Scotland's most dramatic valleys. Jaw-dropping drive</span></li>
-        <li><span class="icon">🌿</span><span><strong>Cairngorms National Park</strong> — Wild Highland scenery, hiking, wildlife</span></li>
+        <li><span class="icon">🪨</span><span><strong>Kilmartin Glen</strong> — 350+ ancient monuments in one valley. Standing stones, cairns, 5,000-year-old rock carvings. Barely anyone goes here</span></li>
+        <li><span class="icon">⭕</span><span><strong>Clava Cairns</strong> (near Inverness) — 4,000-year-old burial cairns and standing stones. Inspired Outlander's Craigh na Dun</span></li>
+        <li><span class="icon">⛰️</span><span><strong>Glencoe</strong> — One of Scotland's most dramatic valleys. The drive alone is worth it</span></li>
+        <li><span class="icon">🌿</span><span><strong>Cairngorms National Park</strong> — Wild Highland scenery, hiking, red deer, golden eagles</span></li>
       </ul>
-
       <div class="section-title">🚗 Getting Around</div>
-      <p style="font-size:0.9rem;color:var(--muted)">Rental car from Glasgow. More flexibility to explore, stop anywhere, adjust plans on the fly. Note: driving on the left + single-track Highland roads is an adventure in itself.</p>
-
+      <p style="font-size:0.9rem;color:var(--muted)">Rental car from Glasgow. Total flexibility to stop anywhere. Note: driving on the left + single-track Highland roads is part of the adventure. Designated driver needed for distillery days.</p>
       <div class="highlight-box">
-        <strong>For Jess:</strong> More variety beyond whisky — stunning hikes, charming villages, ancient history, highland cows, gorgeous scenery at every turn. Easier to mix interests for the whole group.
+        <strong>🌺 For Jess:</strong> Way more variety — stunning hikes, charming villages, highland cows, ancient history at every turn, plus towns with shops and restaurants. Easier to split up and mix interests.
       </div>
-
-      <span class="weather-badge">☀️ July: 15–20°C, longest days of the year, but peak tourist season on popular routes</span>
-
+      <span class="weather-badge">☀️ July: 15–20°C, longest days of the year, but popular routes get crowded</span>
       <div class="section-title">Tradeoffs</div>
       <div class="pros-cons">
         <div>
@@ -579,127 +253,94 @@
           <ul>
             <li><span class="icon">•</span>Incredible scenery variety</li>
             <li><span class="icon">•</span>Ancient megaliths (Kilmartin, Clava)</li>
-            <li><span class="icon">•</span>More to do for non-whisky lovers</li>
-            <li><span class="icon">•</span>Flexible — go wherever, stop anywhere</li>
+            <li><span class="icon">•</span>Something for everyone</li>
+            <li><span class="icon">•</span>Total flexibility, go anywhere</li>
             <li><span class="icon">•</span>No flights to coordinate</li>
           </ul>
         </div>
         <div>
           <strong style="color:#c62828;font-size:0.82rem">⚠️ CONS</strong>
           <ul>
-            <li><span class="icon">•</span>No Bruichladdich (Islay only, period)</li>
+            <li><span class="icon">•</span>No Bruichladdich (Islay only)</li>
             <li><span class="icon">•</span>Driving on the left, narrow roads</li>
-            <li><span class="icon">•</span>More logistics and planning</li>
-            <li><span class="icon">•</span>July: A82/Glencoe can be crowded</li>
-            <li><span class="icon">•</span>Designated driver needed (or take turns)</li>
+            <li><span class="icon">•</span>More planning needed</li>
+            <li><span class="icon">•</span>July crowds on A82/Glencoe</li>
+            <li><span class="icon">•</span>Designated driver = someone skips tastings</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <!-- JULY CONDITIONS -->
 <div class="july-section">
   <h3>☀️ July in Scotland — What to Expect</h3>
   <div class="july-grid">
     <div class="july-card">
       <h4>🌡️ Weather</h4>
-      <p>14–20°C (57–68°F). The warmest month, but this is Scotland — pack layers and a waterproof. Rain is always possible. Islay gets more wind; mainland Highlands can be warmer inland.</p>
+      <p>14–20°C (57–68°F). Scotland's warmest month, but pack layers and a waterproof — rain is always possible. Islay is windier and cooler; inland Highlands can be warmer.</p>
     </div>
     <div class="july-card">
       <h4>🌅 Daylight</h4>
-      <p>17–18 hours of daylight. Sun doesn't fully set until ~10pm, and it never gets truly dark. Incredible for exploring and photography.</p>
+      <p>17–18 hours. Sun doesn't fully set until ~10pm and it never gets truly dark. Incredible for exploring and photography. Evenings last forever.</p>
     </div>
     <div class="july-card">
       <h4>🦟 Midges</h4>
-      <p>July is peak midge season, especially in sheltered inland areas (Highlands). Islay's coastal wind helps significantly. Pack Smidge repellent either way — it's the Scottish-made secret weapon.</p>
+      <p>July = peak midge season, especially sheltered inland areas (Highlands worst, Islay's coast wind helps a lot). Pack Smidge repellent — the Scottish-made secret weapon.</p>
     </div>
     <div class="july-card">
       <h4>👥 Crowds</h4>
-      <p>Peak tourist season. Popular mainland spots (Edinburgh, Glencoe, Skye) get busy. Islay stays relatively quiet — it's too remote for the tour bus crowd. Speyside is middle ground.</p>
+      <p>Peak tourist season. Edinburgh and the A82 (Glencoe) get busy. Islay stays quiet — too remote for tour buses. Speyside and Kilmartin are middle ground. Book distillery tours in advance.</p>
     </div>
   </div>
 </div>
-
 <!-- BRUICHLADDICH NOTE -->
 <div class="bruichladdich-note">
   <div class="inner">
     <h3>🥃 The Bruichladdich Question</h3>
-    <p>There's no mainland consolation prize. No tasting room in Glasgow or Edinburgh. Their entire identity is Islay — the terroir, the water, the sea air. If Bruichladdich is a bucket list item, you have to go to the island. If great whisky in general is the goal, the mainland has phenomenal options you've probably never heard of.</p>
+    <p>There's no mainland consolation prize. No tasting room in Glasgow or Edinburgh. Their whole identity is Islay — the terroir, the water, the sea air. If Bruichladdich is a bucket-list item, you have to go to the island. If great whisky in general is the goal, the mainland has phenomenal options you've probably never heard of.</p>
   </div>
 </div>
-
-<!-- FULL TRIP TIMELINE -->
+<!-- TIMELINE -->
 <div class="itinerary-preview">
   <h3>📍 The Full Trip (Either Way)</h3>
   <div class="timeline">
-    <div class="timeline-item scotland">
-      <div class="date">Jul 5</div>
-      <div class="desc">✈️ Fly LAX → Glasgow. Overnight in Glasgow — recover from jetlag</div>
-    </div>
-    <div class="timeline-item scotland">
-      <div class="date">Jul 6–9</div>
-      <div class="desc">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <strong>Scotland days</strong> — Islay island OR Highland road trip (this is what we're deciding!)</div>
-    </div>
-    <div class="timeline-item scotland">
-      <div class="date">Jul 9</div>
-      <div class="desc">Return to Glasgow. Optional day trip to Edinburgh (50 min train, easy)</div>
-    </div>
-    <div class="timeline-item paris">
-      <div class="date">Jul 10</div>
-      <div class="desc">✈️ Fly Glasgow → Paris (easyJet, 2hr, ~$45–80)</div>
-    </div>
-    <div class="timeline-item paris">
-      <div class="date">Jul 10–16</div>
-      <div class="desc">🇫🇷 Paris — TBD (food, culture, wandering)</div>
-    </div>
-    <div class="timeline-item amsterdam">
-      <div class="date">Jul 16</div>
-      <div class="desc">🚄 Train Paris → Amsterdam (Thalys, 3hr)</div>
-    </div>
-    <div class="timeline-item amsterdam">
-      <div class="date">Jul 16–20</div>
-      <div class="desc">🇳🇱 Amsterdam + Efteling 🎢 (Jody joins from Bern)</div>
-    </div>
-    <div class="timeline-item amsterdam">
-      <div class="date">Jul 20</div>
-      <div class="desc">✈️ Fly AMS → LAX (direct on Delta/KLM)</div>
-    </div>
+    <div class="timeline-item scotland"><div class="date">Jul 5</div><div class="desc">✈️ Fly LAX → Glasgow. Overnight — recover from jetlag at a proper pub</div></div>
+    <div class="timeline-item scotland"><div class="date">Jul 6–9</div><div class="desc">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <strong>Scotland days</strong> — Islay island OR Highland road trip <em>(this is what we're deciding!)</em></div></div>
+    <div class="timeline-item scotland"><div class="date">Jul 9</div><div class="desc">Return to Glasgow. Optional day trip to Edinburgh (50 min train)</div></div>
+    <div class="timeline-item paris"><div class="date">Jul 10</div><div class="desc">✈️ Fly Glasgow → Paris (easyJet, 2hr, ~$45–80)</div></div>
+    <div class="timeline-item paris"><div class="date">Jul 10–16</div><div class="desc">🇫🇷 Paris — food, culture, wandering</div></div>
+    <div class="timeline-item amsterdam"><div class="date">Jul 16</div><div class="desc">🚄 Train Paris → Amsterdam (Thalys, 3hr)</div></div>
+    <div class="timeline-item amsterdam"><div class="date">Jul 16–20</div><div class="desc">🇳🇱 Amsterdam + Efteling 🎢 (Jody joins from Bern)</div></div>
+    <div class="timeline-item amsterdam"><div class="date">Jul 20</div><div class="desc">✈️ Fly AMS → LAX (direct on Delta/KLM)</div></div>
   </div>
 </div>
-
 <!-- VOTE -->
 <div class="vote-section">
   <h3>So... what'll it be?</h3>
-  <p class="subtext">No wrong answer. Just tell us what excites you.</p>
+  <p class="subtext">No wrong answer. Just tell us what excites you most.</p>
   <div class="vote-buttons">
-    <button class="vote-btn islay-btn" onclick="vote('islay')">🏝️ Islay</button>
+    <button class="vote-btn islay-btn" onclick="vote('islay')">🏝️ Islay Island</button>
     <button class="vote-btn mainland-btn" onclick="vote('mainland')">🏔️ Highlands</button>
-    <button class="vote-btn both-btn" onclick="vote('both')">🤷 Can't decide</button>
+    <button class="vote-btn both-btn" onclick="vote('both')">🤷 Can't Decide</button>
   </div>
   <div class="vote-result" id="voteResult"></div>
 </div>
-
-<div class="footer">
-  Put together by Rev (with help from his paranoid android) · March 2026
-</div>
-
+<div class="footer">Put together by Jon (with help from his paranoid android) · March 2026</div>
 <script>
-function vote(choice) {
-  const el = document.getElementById('voteResult');
-  const msgs = {
-    islay: "🏝️ <strong>Islay it is!</strong> We'll get those Loganair flights booked ASAP — they fill up fast in summer. Trevor, start mentally preparing for cask-strength Bruichladdich at 9am. Jess, the beaches are genuinely beautiful. Screenshot this and send it to Rev!",
-    mainland: "🏔️ <strong>Highland road trip!</strong> Standing stones, hidden distilleries, and Glencoe. We'll map out the route. Screenshot this and send it to Rev — we'll start planning the stops!",
-    both: "🤷 <strong>Fair enough!</strong> Here's a wild idea: 2 days on Islay (Bruichladdich + Kilchoman) then swing through Kilmartin Glen on the way back via Oban. Best of both worlds, just a bit more logistics. Tell Rev what you're leaning toward!"
+function vote(choice){
+  const el=document.getElementById('voteResult');
+  const msgs={
+    islay:"🏝️ <strong>Islay it is!</strong> We'll need to book Loganair flights and distillery tours ASAP — both fill up fast in July. Trevor, start mentally preparing for cask-strength Bruichladdich at 9am. Jess, the beaches are genuinely stunning. Text Jon and let him know!",
+    mainland:"🏔️ <strong>Highland road trip!</strong> Standing stones older than the pyramids, secret distilleries, and Glencoe. We'll map out the route. Text Jon — let's start planning the stops!",
+    both:"🤷 <strong>Fair enough!</strong> Here's a wild card: 2 days on Islay (Bruichladdich + Kilchoman), then swing through Kilmartin Glen on the way back to Glasgow via Oban. Best of both worlds, just tighter logistics. Text Jon with your thoughts!"
   };
-  el.innerHTML = msgs[choice];
+  el.innerHTML=msgs[choice];
   el.classList.add('show');
-  document.querySelectorAll('.vote-btn').forEach(b => b.style.opacity = '0.5');
-  event.target.style.opacity = '1';
-  event.target.style.transform = 'scale(1.05)';
+  document.querySelectorAll('.vote-btn').forEach(b=>b.style.opacity='0.5');
+  event.target.style.opacity='1';
+  event.target.style.transform='scale(1.05)';
 }
 </script>
-
 </body>
 </html>
