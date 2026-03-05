@@ -46,6 +46,18 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .photo-grid .photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
 .photo-grid .photo-item:hover img{transform:scale(1.05)}
 .photo-grid .photo-item .photo-label{position:absolute;bottom:0;left:0;right:0;padding:6px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:white;font-size:0.68rem;font-weight:600;letter-spacing:0.4px}
+.distillery-block{margin-top:16px;padding:16px;border-radius:10px;background:#faf5ff;border:1px solid #e9d5ff}
+.distillery-block h4{font-size:0.88rem;margin-bottom:10px;color:#6b21a8}
+.distillery-item{margin-bottom:14px}
+.distillery-item:last-child{margin-bottom:0}
+.distillery-item .d-name{font-weight:600;font-size:0.88rem}
+.distillery-item .d-note{font-size:0.82rem;color:var(--muted);margin-top:2px}
+.d-dims{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.d-dim{font-size:0.7rem;padding:3px 8px;border-radius:100px;font-weight:500}
+.d-cozy{background:#fef3c7;color:#92400e}
+.d-sleeper{background:#dbeafe;color:#1e40af}
+.d-scenic{background:#d1fae5;color:#065f46}
+.d-laddie{background:#fce7f3;color:#9d174d}
 .highlight-box{padding:14px;border-radius:8px;margin-top:14px;font-size:0.87rem;background:#fff8e1;border-left:3px solid #f9a825}
 .travel-box{padding:14px;border-radius:8px;margin-top:14px;font-size:0.87rem;background:#e8f5e9;border-left:3px solid #43a047}
 
@@ -164,6 +176,30 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <li><span class="icon">✝️</span><span><strong>Kildalton Cross</strong> — 8th century Celtic high cross</span></li>
       </ul>
 
+      <div class="distillery-block">
+        <h4>🥃 Distillery Guide</h4>
+        <div class="distillery-item">
+          <div class="d-name">Bruichladdich</div>
+          <div class="d-note">The one Trevor loves. Unpeated, barley-terroir focused, coastal. The original.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★</span><span class="d-dim d-scenic">Scenic ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Kilchoman</div>
+          <div class="d-note">Farm distillery — they grow, malt, distill, and bottle on-site. Peated but elegant.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★★</span><span class="d-dim d-scenic">Scenic ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Lagavulin</div>
+          <div class="d-note">Iconic peat monster. Beautiful bay with castle ruins. Very different from Bruichladdich.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★</span><span class="d-dim d-sleeper">Discovery ★★</span><span class="d-dim d-scenic">Scenic ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Bunnahabhain</div>
+          <div class="d-note">The unpeated rebel of Islay. Remote, seals on the rocks, barley-forward like Bruichladdich.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★</span><span class="d-dim d-scenic">Scenic ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★★</span></div>
+        </div>
+      </div>
+
       <div class="highlight-box" style="background:#eef2ff;border-left-color:#4f46e5">
         <strong>🧔 For Jon:</strong> No castles or megaliths to speak of. But Port Charlotte has one of the coziest pubs in Scotland (The Lochindaal Inn) and every distillery here is a sleeper hit by definition — no corporate tours, just the real thing.
       </div>
@@ -222,6 +258,30 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <li><span class="icon">🥃</span><span><strong>Oban Distillery</strong> (in town) — one of the oldest in Scotland</span></li>
         <li><span class="icon">🏝️</span><span><strong>Isle of Kerrera</strong> (5 min ferry) — walk to ruined castle, no cars</span></li>
       </ul>
+
+      <div class="distillery-block">
+        <h4>🥃 Distillery Guide</h4>
+        <div class="distillery-item">
+          <div class="d-name">Oban Distillery</div>
+          <div class="d-note">One of Scotland's oldest (est. 1794), right in town. Lightly peated, honey and sea salt.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★</span><span class="d-dim d-scenic">Scenic ★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Tobermory (Isle of Mull — 45 min ferry)</div>
+          <div class="d-note">Overlooked gem. Unpeated, fruity, coastal character. Their peated alter-ego "Ledaig" is a cult favorite.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★★</span><span class="d-dim d-scenic">Scenic ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Deanston (1.5hr day trip)</div>
+          <div class="d-note">Converted cotton mill on a river. Unpeated, honey-forward, self-powered by waterwheel.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★★</span><span class="d-dim d-scenic">Scenic ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Ben Nevis Distillery (1.5hr)</div>
+          <div class="d-note">Rugged Highland character. Waxy, fruity, slightly funky. A whisky nerd's whisky.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★</span><span class="d-dim d-sleeper">Discovery ★★★★</span><span class="d-dim d-scenic">Scenic ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★</span></div>
+        </div>
+      </div>
 
       <div class="highlight-box" style="background:#eef2ff;border-left-color:#4f46e5">
         <strong>🧔 For Jon:</strong> Jackpot. Kilmartin Glen has 350+ megaliths and cairns. Inveraray Castle and Dunstaffnage Castle are nearby. Oban has proper cozy pubs, and the distilleries (Oban, plus Deanston/Edradour as day trips) are all low-key gems.
@@ -282,6 +342,30 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <li><span class="icon">📜</span><span><strong>Lindores Abbey</strong> (1hr) — where Scotch was first recorded, 1494</span></li>
       </ul>
 
+      <div class="distillery-block">
+        <h4>🥃 Distillery Guide</h4>
+        <div class="distillery-item">
+          <div class="d-name">Edradour (1.5hr, Pitlochry)</div>
+          <div class="d-note">Smallest traditional distillery in Scotland. Rich, sherried, handcrafted. Feels like a secret.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★★</span><span class="d-dim d-scenic">Scenic ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Lindores Abbey (1hr, Fife)</div>
+          <div class="d-note">Where Scotch was first recorded in 1494. Literally the birthplace. New distillery on ancient grounds.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★★</span><span class="d-dim d-scenic">Scenic ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Glengoyne (1hr via Glasgow)</div>
+          <div class="d-note">Zero peat, ever. Sits right on the Highland Line. Fruity, sherried, gorgeous.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★</span><span class="d-dim d-scenic">Scenic ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Holyrood Distillery (in Edinburgh)</div>
+          <div class="d-note">Brand new, experimental, right in the city. Interesting but very young whisky.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★</span><span class="d-dim d-sleeper">Discovery ★★★</span><span class="d-dim d-scenic">Scenic ★★</span><span class="d-dim d-laddie">Laddie-like ★★</span></div>
+        </div>
+      </div>
+
       <div class="highlight-box" style="background:#eef2ff;border-left-color:#4f46e5">
         <strong>🧔 For Jon:</strong> Edinburgh Castle is iconic (if touristy). Rosslyn Chapel is a medieval masterpiece. The SMWS bar and Bow Bar are some of Scotland's coziest. But no megaliths within range — Rosslyn is the closest thing to ancient mystery.
       </div>
@@ -340,6 +424,25 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <li><span class="icon">🏔️</span><span><strong>Ben Nevis</strong> (in town) — UK's highest peak</span></li>
         <li><span class="icon">🌊</span><span><strong>Steall Falls</strong> (15 min + walk) — hidden waterfall in a dramatic valley</span></li>
       </ul>
+
+      <div class="distillery-block">
+        <h4>🥃 Distillery Guide</h4>
+        <div class="distillery-item">
+          <div class="d-name">Ben Nevis Distillery (in town)</div>
+          <div class="d-note">At the foot of the UK's highest peak. Waxy, fruity, slightly funky. A whisky nerd's hidden gem.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★</span><span class="d-dim d-sleeper">Discovery ★★★★</span><span class="d-dim d-scenic">Scenic ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Oban Distillery (1.5hr)</div>
+          <div class="d-note">Worth the drive. One of Scotland's oldest, lightly peated, coastal honey notes.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★</span><span class="d-dim d-scenic">Scenic ★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span></div>
+        </div>
+        <div class="distillery-item">
+          <div class="d-name">Dalwhinnie (1.5hr south)</div>
+          <div class="d-note">Scotland's highest distillery. Gentle, honeyed, unpeated. Remote and peaceful.</div>
+          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★</span><span class="d-dim d-scenic">Scenic ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span></div>
+        </div>
+      </div>
 
       <div class="highlight-box" style="background:#eef2ff;border-left-color:#4f46e5">
         <strong>🧔 For Jon:</strong> Clava Cairns (4,000-year-old standing stones) is a day trip. Old Inverlochy Castle ruins are 10 min away. The pubs are proper Highland cozy. But fewer distilleries in range — Ben Nevis Distillery is the main one.
