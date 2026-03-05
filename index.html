@@ -54,6 +54,11 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .distillery-item .d-note{font-size:0.82rem;color:var(--muted);margin-top:2px}
 .d-dims{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
 .d-dim{font-size:0.7rem;padding:3px 8px;border-radius:100px;font-weight:500}
+.d-dim .d-stars{display:none}
+.d-dim[data-rating="1"],.d-dim[data-rating="2"]{display:none}
+.d-dim[data-rating="3"]{opacity:0.55;font-weight:400}
+.d-dim[data-rating="4"]{opacity:0.8;font-weight:600}
+.d-dim[data-rating="5"]{opacity:1;font-weight:700}
 .d-cozy{background:#fef3c7;color:#92400e}
 .d-sleeper{background:#dbeafe;color:#1e40af}
 .d-scenic{background:#d1fae5;color:#065f46}
@@ -194,39 +199,7 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <div class="distillery-item">
           <div class="d-name">Bruichladdich</div>
           <div class="d-note">The one Trevor loves. Unpeated, barley-terroir focused, coastal. The original.</div>
-          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★</span><span class="d-dim d-laddie">Laddie-like ★★★★★</span><span class="d-dim d-unpeated">Unpeated ★★★★★</span></div>
-        </div>
-        <div class="distillery-item">
-          <div class="d-name">Kilchoman</div>
-          <div class="d-note">Farm distillery — they grow, malt, distill, and bottle on-site. Peated but elegant.</div>
-          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★</span><span class="d-dim d-unpeated">Unpeated ★</span></div>
-        </div>
-        <div class="distillery-item">
-          <div class="d-name">Bunnahabhain</div>
-          <div class="d-note">The unpeated rebel of Islay. Remote, seals on the rocks, barley-forward like Bruichladdich.</div>
-          <div class="d-dims"><span class="d-dim d-cozy">Cozy ★★★★</span><span class="d-dim d-sleeper">Discovery ★★★★</span><span class="d-dim d-laddie">Laddie-like ★★★★</span></div>
-        </div>
-      </div>
-
-      <div class="highlight-box" style="background:#f8f9fa;border-left-color:#6366f1">
-        <strong>🧔 Jon:</strong> <strong>Coziest pubs in Scotland</strong>, every distillery is a sleeper hit. No castles or megaliths though.<br>
-        <strong>🥃 Trevor:</strong> <strong>The mothership.</strong> Bruichladdich Black Art, Kilchoman farm-to-bottle. Whisky heaven, full stop.<br>
-        <strong>🌺 Jess:</strong> Wild Atlantic beaches, seals & sea eagles — but limited variety beyond coastal walks on a small island.
-      </div>
-
-      <div class="travel-box">
-        <strong>✈️ Getting there from LAX:</strong> LAX → Glasgow (connect via London/Amsterdam) + overnight in Glasgow + Loganair to Islay (45 min, 1-2 flights/day). <strong>~20-24hr total, 3 flights.</strong> Loganair books up fast in July — limited seats. <strong>Early July (before English school holidays) is the quietest window.</strong>
-      </div>
-
-      <table class="ratings-table">
-        <tr><td>🥃 Whisky</td><td class="stars">★★★★★</td></tr>
-        <tr><td>🪨 Ancient Sites</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
-        <tr><td>⛰️ Scenery</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
-        <tr><td>🧔 For Jon</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
-        <tr><td>🥃 For Trevor</td><td class="stars">★★★★★</td></tr>
-        <tr><td>🌺 For Jess</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
-        <tr><td>🤫 Quiet <span style="font-size:0.7rem;color:var(--muted)">(more ★ = fewer crowds)</span></td><td class="stars">★★★★<span class="dim">★</span></td></tr>
-        <tr><td>🦟 Midge-free <span style="font-size:0.7rem;color:var(--muted)">(more ★ = fewer)</span></td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+          <div class="d-dims"><span class="d-dim d-cozy" data-rating="85"><span class="d-label">Cozy</span><span class="d-stars"> ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</span></span></td></tr>
   </table>
   <p class="note">★ = more is better across all categories. "Quiet" means fewer tourists — more ★ = more peaceful.</p>
 </div>
