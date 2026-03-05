@@ -10,33 +10,23 @@
 :root{--text:#1a1a1a;--muted:#6b7280;--card-shadow:0 4px 24px rgba(0,0,0,0.08)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#f8f6f3;line-height:1.6}
-
-/* HERO */
 .hero{position:relative;text-align:center;padding:80px 24px 60px;color:white;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:url('img/hero.jpg') center/cover}
 .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:0}
 .hero>*{position:relative;z-index:1}
 .hero h1{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,0.4)}
 .hero .subtitle{font-size:1.15rem;opacity:0.9;font-weight:300}
 .hero .dates{display:inline-block;margin-top:20px;padding:10px 28px;border:1px solid rgba(255,255,255,0.4);border-radius:100px;font-size:1rem;font-weight:500;backdrop-filter:blur(4px);background:rgba(255,255,255,0.1)}
-
-/* TRAVELERS */
 .travelers{text-align:center;padding:32px 24px;background:white;border-bottom:1px solid #e5e7eb}
 .travelers .group{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
 .travelers .person{display:flex;align-items:center;gap:8px;font-size:0.95rem}
 .travelers .person .emoji{font-size:1.4rem}
-
-/* PREAMBLE */
 .preamble{max-width:760px;margin:0 auto;padding:40px 24px;text-align:center}
 .preamble h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:16px}
 .preamble p{font-size:1.02rem;color:var(--muted);line-height:1.8}
 .preamble .reasons{text-align:left;max-width:560px;margin:20px auto;font-size:0.95rem;line-height:1.9}
 .preamble .reasons p{margin-bottom:4px;color:var(--text)}
-
-/* OPTIONS GRID */
 .options{max-width:1200px;margin:0 auto;padding:0 24px 40px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 @media(max-width:900px){.options{grid-template-columns:1fr}.hero h1{font-size:2.2rem}}
-
-/* OPTION CARDS */
 .option-card{background:white;border-radius:16px;box-shadow:var(--card-shadow);overflow:hidden;transition:transform 0.2s}
 .option-card:hover{transform:translateY(-2px)}
 .card-hero{position:relative;height:200px;overflow:hidden}
@@ -51,23 +41,22 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .card-body ul{list-style:none;padding:0}
 .card-body ul li{padding:5px 0;font-size:0.88rem;display:flex;gap:8px;align-items:flex-start}
 .card-body ul li .icon{flex-shrink:0;width:20px;text-align:center}
-
-/* PHOTO GRIDS */
 .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:14px;border-radius:8px;overflow:hidden}
 .photo-grid .photo-item{position:relative;height:120px;overflow:hidden}
 .photo-grid .photo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
 .photo-grid .photo-item:hover img{transform:scale(1.05)}
 .photo-grid .photo-item .photo-label{position:absolute;bottom:0;left:0;right:0;padding:6px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:white;font-size:0.68rem;font-weight:600;letter-spacing:0.4px}
-
-/* HIGHLIGHT BOX */
 .highlight-box{padding:14px;border-radius:8px;margin-top:14px;font-size:0.87rem;background:#fff8e1;border-left:3px solid #f9a825}
+.travel-box{padding:14px;border-radius:8px;margin-top:14px;font-size:0.87rem;background:#e8f5e9;border-left:3px solid #43a047}
 
-/* RATINGS */
-.ratings{margin-top:18px;display:flex;flex-direction:column;gap:6px}
-.rating-row{display:flex;align-items:center;gap:8px;font-size:0.85rem}
-.rating-row .rating-label{width:100px;font-weight:500;color:var(--muted)}
-.rating-row .stars{color:#f59e0b;letter-spacing:1px}
-.rating-row .stars .dim{opacity:0.2}
+/* RATINGS TABLE */
+.ratings-table{width:100%;margin-top:18px;border-collapse:collapse;font-size:0.82rem}
+.ratings-table td{padding:6px 0;vertical-align:middle}
+.ratings-table td:first-child{color:var(--muted);font-weight:500;width:120px}
+.ratings-table .stars{color:#f59e0b;letter-spacing:1px;font-size:0.9rem}
+.ratings-table .stars .dim{opacity:0.2}
+.ratings-table .general td{border-top:1px solid #f0f0f0;padding-top:10px}
+.ratings-table .general:first-of-type td{margin-top:6px}
 
 /* COMPARISON TABLE */
 .comparison{max-width:900px;margin:0 auto;padding:0 24px 48px}
@@ -78,9 +67,10 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .comparison tr:hover td{background:#fafafa}
 .comparison .stars{color:#f59e0b;white-space:nowrap}
 .comparison .stars .dim{opacity:0.2}
+.comparison .sep td{border-top:2px solid #e5e7eb}
+.comparison .note{font-size:0.78rem;color:var(--muted);text-align:center;margin-top:10px;font-style:italic}
 @media(max-width:600px){.comparison{overflow-x:auto}.comparison table{min-width:600px}}
 
-/* JULY SECTION */
 .july-section{max-width:720px;margin:0 auto;padding:0 24px 48px;text-align:center}
 .july-section h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:16px}
 .july-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
@@ -88,8 +78,6 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .july-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
 .july-card h4{font-size:0.95rem;margin-bottom:8px}
 .july-card p{font-size:0.85rem;color:var(--muted)}
-
-/* TIMELINE */
 .itinerary-preview{max-width:720px;margin:0 auto;padding:0 24px 60px}
 .itinerary-preview h3{font-family:'Playfair Display',serif;font-size:1.5rem;text-align:center;margin-bottom:24px}
 .timeline{position:relative;padding-left:32px}
@@ -101,8 +89,6 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .timeline-item.amsterdam::before{background:#e65100}
 .timeline-item .date{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
 .timeline-item .desc{font-size:0.92rem;margin-top:2px}
-
-/* VOTE */
 .vote-section{max-width:700px;margin:0 auto;padding:0 24px 80px;text-align:center}
 .vote-section h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px}
 .vote-section .subtext{color:var(--muted);font-size:0.95rem;margin-bottom:28px}
@@ -115,20 +101,17 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 .vote-btn.btn-fw{background:#4a148c}
 .vote-result{display:none;margin-top:24px;padding:20px;border-radius:12px;background:white;box-shadow:var(--card-shadow);font-size:1rem}
 .vote-result.show{display:block}
-
 .footer{text-align:center;padding:32px 24px;font-size:0.82rem;color:var(--muted);border-top:1px solid #e5e7eb}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <h1><svg viewBox="0 0 5 3" style="width:48px;height:29px;vertical-align:middle;margin-right:8px;border-radius:3px"><rect width="5" height="3" fill="#005EB8"/><path d="M0,0 L5,3 M5,0 L0,3" stroke="white" stroke-width="0.6"/></svg>Scotland 2026</h1>
   <div class="subtitle">Four ways to do this. We need your vote.</div>
   <div class="dates">🗓 July 5–20, 2026</div>
 </div>
 
-<!-- TRAVELERS -->
 <div class="travelers">
   <div class="group">
     <div class="person"><span class="emoji">🧔</span> Jon</div>
@@ -138,7 +121,6 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
   </div>
 </div>
 
-<!-- PREAMBLE -->
 <div class="preamble">
   <h3>Wait — why are we even discussing this?</h3>
   <p>We were all set on Islay. Trevor loves Bruichladdich, it's a whisky pilgrimage, done deal. But then I started looking at what we'd be giving up:</p>
@@ -150,7 +132,6 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
   <p>So before locking it in, I wanted to bring it to the group. The plan is <strong>one home base for 4 nights</strong> — keep it simple, no hotel-hopping. Here are four options. Each one is a completely different Scotland experience.</p>
 </div>
 
-<!-- OPTIONS -->
 <div class="options">
 
   <!-- ISLAY -->
@@ -187,11 +168,20 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <strong>🌺 For Jess:</strong> Gorgeous beaches, coastal walks, seals & sea eagles, charming village life. But limited options beyond whisky + nature on a small island.
       </div>
 
-      <div class="ratings">
-        <div class="rating-row"><span class="rating-label">🟢 Ease</span><span class="stars">★★<span class="dim">★★★</span></span></div>
-        <div class="rating-row"><span class="rating-label">🔥 Adventure</span><span class="stars">★★★★<span class="dim">★</span></span></div>
-        <div class="rating-row"><span class="rating-label">💎 Memorable</span><span class="stars">★★★★★</span></div>
+      <div class="travel-box">
+        <strong>✈️ Getting there from LAX:</strong> LAX → Glasgow (connect via London/Amsterdam) + overnight in Glasgow + Loganair to Islay (45 min, 1-2 flights/day). <strong>~20-24hr total, 3 flights.</strong> Loganair books up fast in July — limited seats.
       </div>
+
+      <table class="ratings-table">
+        <tr><td>Whisky</td><td class="stars">★★★★★</td></tr>
+        <tr><td>Ancient Sites</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr><td>Scenery</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr><td>For Jess</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr><td>Quiet (fewer crowds)</td><td class="stars">★★★★★</td></tr>
+        <tr class="general"><td>🟢 Ease</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr class="general"><td>🔥 Adventure</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+        <tr class="general"><td>💎 Memorable</td><td class="stars">★★★★★</td></tr>
+      </table>
     </div>
   </div>
 
@@ -218,7 +208,7 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 
       <div class="section-title">Day Trips (all within 1.5hr)</div>
       <ul>
-        <li><span class="icon">🪨</span><span><strong>Kilmartin Glen</strong> (30 min) — 350+ ancient monuments, standing stones, 5,000-yr-old carvings. Barely anyone visits</span></li>
+        <li><span class="icon">🪨</span><span><strong>Kilmartin Glen</strong> (30 min) — 350+ ancient monuments, standing stones, 5,000-yr-old carvings</span></li>
         <li><span class="icon">⛰️</span><span><strong>Glencoe</strong> (45 min) — Scotland's most dramatic valley</span></li>
         <li><span class="icon">🏰</span><span><strong>Inveraray Castle</strong> (45 min) — fairytale castle on a loch</span></li>
         <li><span class="icon">🥃</span><span><strong>Oban Distillery</strong> (in town) — one of the oldest in Scotland</span></li>
@@ -226,14 +216,23 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
       </ul>
 
       <div class="highlight-box">
-        <strong>🌺 For Jess:</strong> Seafood restaurants, harbor town charm, island hopping, castle visits, hiking, shops. Something for everyone — the most well-rounded option.
+        <strong>🌺 For Jess:</strong> Seafood restaurants, harbor town charm, island hopping, castle visits, hiking, shops. The most well-rounded option for the whole group.
       </div>
 
-      <div class="ratings">
-        <div class="rating-row"><span class="rating-label">🟢 Ease</span><span class="stars">★★★★<span class="dim">★</span></span></div>
-        <div class="rating-row"><span class="rating-label">🔥 Adventure</span><span class="stars">★★★★<span class="dim">★</span></span></div>
-        <div class="rating-row"><span class="rating-label">💎 Memorable</span><span class="stars">★★★★★</span></div>
+      <div class="travel-box">
+        <strong>✈️ Getting there from LAX:</strong> LAX → Glasgow (connect via London/Amsterdam) + 2hr scenic drive through Loch Lomond to Oban. <strong>~16-18hr total, 2 flights + drive.</strong> Straightforward — rent a car at Glasgow airport.
       </div>
+
+      <table class="ratings-table">
+        <tr><td>Whisky</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr><td>Ancient Sites</td><td class="stars">★★★★★</td></tr>
+        <tr><td>Scenery</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+        <tr><td>For Jess</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+        <tr><td>Quiet (fewer crowds)</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+        <tr class="general"><td>🟢 Ease</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+        <tr class="general"><td>🔥 Adventure</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+        <tr class="general"><td>💎 Memorable</td><td class="stars">★★★★★</td></tr>
+      </table>
     </div>
   </div>
 
@@ -255,7 +254,7 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <div class="photo-item"><img src="img/rosslyn.jpg" alt="Rosslyn Chapel"><div class="photo-label">Rosslyn Chapel (30 min)</div></div>
         <div class="photo-item"><img src="img/edradour.jpg" alt="Edradour"><div class="photo-label">Edradour Distillery (1.5hr)</div></div>
         <div class="photo-item"><img src="img/edinburgh.jpg" alt="Edinburgh"><div class="photo-label">Edinburgh Old Town</div></div>
-        <div class="photo-item"><img src="img/loch-lomond.jpg" alt="Stirling area"><div class="photo-label">Scottish Countryside</div></div>
+        <div class="photo-item"><img src="img/loch-lomond.jpg" alt="Scottish countryside"><div class="photo-label">Scottish Countryside</div></div>
       </div>
 
       <div class="section-title">Day Trips (all within 1.5hr)</div>
@@ -271,11 +270,20 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
         <strong>🌺 For Jess:</strong> Endless options — museums, restaurants, shopping, architecture. July means Fringe Festival preview events. The best option for her by far.
       </div>
 
-      <div class="ratings">
-        <div class="rating-row"><span class="rating-label">🟢 Ease</span><span class="stars">★★★★★</span></div>
-        <div class="rating-row"><span class="rating-label">🔥 Adventure</span><span class="stars">★★<span class="dim">★★★</span></span></div>
-        <div class="rating-row"><span class="rating-label">💎 Memorable</span><span class="stars">★★★<span class="dim">★★</span></span></div>
+      <div class="travel-box">
+        <strong>✈️ Getting there from LAX:</strong> LAX → Edinburgh direct possible (or connect via London/Amsterdam). Can also fly to Glasgow + 50 min train. <strong>~14-16hr total, simplest routing.</strong> No car needed — trains and buses everywhere.
       </div>
+
+      <table class="ratings-table">
+        <tr><td>Whisky</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr><td>Ancient Sites</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr><td>Scenery</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr><td>For Jess</td><td class="stars">★★★★★</td></tr>
+        <tr><td>Quiet (fewer crowds)</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr class="general"><td>🟢 Ease</td><td class="stars">★★★★★</td></tr>
+        <tr class="general"><td>🔥 Adventure</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr class="general"><td>💎 Memorable</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+      </table>
     </div>
   </div>
 
@@ -302,7 +310,7 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
 
       <div class="section-title">Day Trips (all within 1.5hr)</div>
       <ul>
-        <li><span class="icon">⛰️</span><span><strong>Glencoe</strong> (20 min) — right on your doorstep. Scotland's most dramatic valley</span></li>
+        <li><span class="icon">⛰️</span><span><strong>Glencoe</strong> (20 min) — right on your doorstep, Scotland's most dramatic valley</span></li>
         <li><span class="icon">🚂</span><span><strong>Glenfinnan Viaduct</strong> (30 min) — the Harry Potter bridge, Jacobite steam train</span></li>
         <li><span class="icon">⭕</span><span><strong>Clava Cairns</strong> (1.5hr) — 4,000-year-old standing stones near Inverness</span></li>
         <li><span class="icon">🏔️</span><span><strong>Ben Nevis</strong> (in town) — UK's highest peak</span></li>
@@ -310,14 +318,23 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
       </ul>
 
       <div class="highlight-box">
-        <strong>🌺 For Jess:</strong> Dramatic scenery, Glenfinnan, wildlife, mountain railway. But the town is smaller with fewer restaurants and shopping than the other options.
+        <strong>🌺 For Jess:</strong> Dramatic scenery, Glenfinnan, wildlife, mountain railway. But the town is smaller with fewer restaurants and shopping.
       </div>
 
-      <div class="ratings">
-        <div class="rating-row"><span class="rating-label">🟢 Ease</span><span class="stars">★★★<span class="dim">★★</span></span></div>
-        <div class="rating-row"><span class="rating-label">🔥 Adventure</span><span class="stars">★★★★★</span></div>
-        <div class="rating-row"><span class="rating-label">💎 Memorable</span><span class="stars">★★★★<span class="dim">★</span></span></div>
+      <div class="travel-box">
+        <strong>✈️ Getting there from LAX:</strong> LAX → Glasgow (connect via London/Amsterdam) + 2.5hr drive through Glencoe (the drive IS the attraction). Or scenic train from Glasgow (4hr). <strong>~18-20hr total, 2 flights + drive.</strong> Longest transfer but most scenic.
       </div>
+
+      <table class="ratings-table">
+        <tr><td>Whisky</td><td class="stars">★★<span class="dim">★★★</span></td></tr>
+        <tr><td>Ancient Sites</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr><td>Scenery</td><td class="stars">★★★★★</td></tr>
+        <tr><td>For Jess</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr><td>Quiet (fewer crowds)</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr class="general"><td>🟢 Ease</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+        <tr class="general"><td>🔥 Adventure</td><td class="stars">★★★★★</td></tr>
+        <tr class="general"><td>💎 Memorable</td><td class="stars">★★★★<span class="dim">★</span></td></tr>
+      </table>
     </div>
   </div>
 
@@ -332,11 +349,13 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:#
     <tr><td><strong>Ancient Sites</strong></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★★★</td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★<span class="dim">★★</span></td></tr>
     <tr><td><strong>Scenery</strong></td><td class="stars">★★★<span class="dim">★★</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★★★</td></tr>
     <tr><td><strong>For Jess</strong></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★★★★</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
-    <tr><td><strong>Crowds (July)</strong></td><td class="stars">★★★★★</td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★<span class="dim">★★</span></td></tr>
-    <tr style="border-top:2px solid #e5e7eb"><td><strong>🟢 Ease</strong></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★★★★</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+    <tr><td><strong>Quiet</strong> <span style="font-size:0.75rem;color:var(--muted)">(more ★ = fewer crowds)</span></td><td class="stars">★★★★★</td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★<span class="dim">★★</span></td></tr>
+    <tr><td><strong>Getting There</strong> <span style="font-size:0.75rem;color:var(--muted)">(from LAX)</span></td><td style="font-size:0.8rem">3 flights, ~22hr</td><td style="font-size:0.8rem">2 flights + 2hr drive</td><td style="font-size:0.8rem">2 flights, simplest</td><td style="font-size:0.8rem">2 flights + 2.5hr drive</td></tr>
+    <tr class="sep"><td><strong>🟢 Ease</strong></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★★★★</td><td class="stars">★★★<span class="dim">★★</span></td></tr>
     <tr><td><strong>🔥 Adventure</strong></td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★★★<span class="dim">★</span></td><td class="stars">★★<span class="dim">★★★</span></td><td class="stars">★★★★★</td></tr>
     <tr><td><strong>💎 Memorable</strong></td><td class="stars">★★★★★</td><td class="stars">★★★★★</td><td class="stars">★★★<span class="dim">★★</span></td><td class="stars">★★★★<span class="dim">★</span></td></tr>
   </table>
+  <p class="note">★ = more is better across all categories. "Quiet" means fewer tourists — more ★ = more peaceful.</p>
 </div>
 
 <!-- JULY CONDITIONS -->
